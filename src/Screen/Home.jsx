@@ -35,7 +35,7 @@ const Home = () => {
           <DentistaProfile key={item.id}>
             <p>{item.name}</p>
             <DentistaPic src={dentista} alt="dentista"/>
-            <Link to={`/detail/${item.name}`}>Ver mas</Link>
+            <Link to={`/users/${item.id}`}>Ver mas</Link>
             <Box>
               <Tooltip title="agregar a favoritos">
                 <IconButton onClick={()=> dispatch({type: "FAVS", payload: item})}>

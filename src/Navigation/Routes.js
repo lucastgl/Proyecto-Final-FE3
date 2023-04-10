@@ -20,7 +20,7 @@ export const routes = [
     },
     {
         id: 3,
-        path: "/detail/:id",
+        path: "/users/:id",
         Component: Details
     },
     {

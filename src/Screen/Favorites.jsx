@@ -21,7 +21,7 @@ const Favorites = () => {
             <DentistaProfile key={item.id}>
                 <p>{item.name}</p>
                 <DentistaPic src={dentista}/>
-                <Link to={`/users/${item.login}`}>Ver mas</Link>
+                <Link to={`/users/${item.id}`}>Ver mas</Link>
                 <Box>
                 <Tooltip title="agregar a favoritos">
                     <IconButton>
