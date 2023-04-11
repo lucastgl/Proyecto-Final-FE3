@@ -1,5 +1,7 @@
+import { Box, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Field, ErrorMessage } from 'formik';
 
 export const StyledLink = styled(Link)`
     margin: 0px 20px;
@@ -9,6 +11,8 @@ export const StyledLink = styled(Link)`
 export const HomeContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
+    width: 100vw;
+    justify-content: center;    
 `;
 
 export const DentistaProfile = styled.div`
@@ -16,17 +20,20 @@ export const DentistaProfile = styled.div`
     width: 20%;
     box-sizing: border-box;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #005353;
+    border: 3px solid white;
+    border-radius: 10px;
+    box-shadow: 4px 10px 18px -7px rgba(255,255,255,1);
 `;
 
 export const DentistaPic = styled.img`
     max-width: 100%;
     height: auto;
+    border-radius: 10px;
 `;
-// 
-
-import { Box, TextField } from '@mui/material';
-
-
 
 export const FormContainer = styled(Box)`
     
@@ -36,7 +43,6 @@ export const FormContainer = styled(Box)`
         inherits: false;
     }
     
-    margin-top: 90px;
     background: #808bb1;
     width: 450px;
     height: 60vh;
@@ -92,20 +98,23 @@ export const FormContainer = styled(Box)`
     }
 `;
 
-export const Input = styled(TextField)`
+export const Input = styled(Field)`
   margin: 15px;
   border-radius: 5px;
   outline: none;
   border: 1px solid #4E6E81;
   color: white;
+  height: 40px;
+  width: 300px;
+
   ::placeholder {
     color: white;
+    opacity: 0.3;
   }
 
   input {
     color: white;
   }
-
   /* Agrega estas reglas */
   &.Mui-error .MuiInputBase-input {
     color: red;
@@ -117,7 +126,46 @@ export const Input = styled(TextField)`
 `;
 
 export const Container = styled.div`
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+`;
+
+export const FormBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+export const NavElement = styled.li`
+  list-style-type: none;
+  color: #ccc; 
+  font-weight: bold;
+  cursor: pointer; 
+  &:hover {
+    color: #fff; 
+    text-decoration: underline; 
+    text-decoration-color: #fff;
+    text-underline-position: under; 
+    text-decoration-thickness: 2px; 
+  }
+`;
+
+export const StyledFooter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200xp;
+  background-color: #3e4653; 
+
+  p {
+    color: white;
+    margin-right: 20px;
+  }
+
+  img {
+    width: 7%;
+    height: auto;
+  }
 `;

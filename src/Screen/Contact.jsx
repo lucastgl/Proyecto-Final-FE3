@@ -1,8 +1,8 @@
 import React, {useState, useContext} from 'react';
 import { StateContext } from '../Context/StateContext';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Box, Button } from '@mui/material';
-import { FormContainer, Input } from '../Styles/styledComponent';
+import { Button } from '@mui/material';
+import { FormContainer, Input, FormBox } from '../Styles/styledComponent';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
@@ -25,7 +25,7 @@ const ContactSchema = Yup.object().shape({
    ),
   telefono: Yup.string()
     .required('El telefono es requerido')
-    .matches(VALID_NUMBER,"El número de teléfono debe ser válido.",)
+    .matches(VALID_NUMBER,"el telefono debe tener el sig formato: +5492217584263",)
 });
 
 const Contact = () => {
@@ -35,7 +35,8 @@ const Contact = () => {
 
 
   return (
-    <Formik
+    <FormBox>
+      <Formik
       initialValues={{ nombre: '', email: '', telefono: "" }}
       validationSchema={ContactSchema}
       onSubmit={(values, { setSubmitting }) => {
@@ -46,8 +47,8 @@ const Contact = () => {
           alert(mensaje)
         }, 800);
       }}
-    >
-      {({ isSubmitting }) => (
+      >
+        {({ isSubmitting }) => (
         <Form>
           <FormContainer>
             <Field
@@ -58,7 +59,6 @@ const Contact = () => {
               label='nombre'
               placeholder='Ingrese su nombre'
               variant='outlined'
-              fullWidth
             />
             <ErrorMessage name='nombre' />
 
@@ -70,7 +70,6 @@ const Contact = () => {
               label='email'
               placeholder='Ingrese su email'
               variant='outlined'
-              fullWidth
             />
             <ErrorMessage name='email' />
 
@@ -82,7 +81,6 @@ const Contact = () => {
               label='telefono'
               placeholder='Ingrese su telefono'
               variant='outlined'
-              fullWidth
             />
             <ErrorMessage name='telefono' />
 
@@ -91,8 +89,9 @@ const Contact = () => {
             </Button>
           </FormContainer>
         </Form>
-      )}
-    </Formik>
+        )}
+      </Formik>
+  </FormBox>
   )
 }
 

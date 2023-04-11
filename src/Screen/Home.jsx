@@ -20,7 +20,7 @@ const Home = () => {
   useEffect(()=>{
     axios.get(endpoint)
       .then(({data}) => {
-        console.log(data);
+        // console.log(data);
         setValues(data);
       })
       .catch((error)=>{
@@ -35,7 +35,7 @@ const Home = () => {
           <DentistaProfile key={item.id}>
             <p>{item.name}</p>
             <DentistaPic src={dentista} alt="dentista"/>
-            <Link to={`/users/${item.id}`}>Ver mas</Link>
+            <Link style={{textDecoration: "none"}} to={`/users/${item.id}`}>Ver mas</Link>
             <Box>
               <Tooltip title="agregar a favoritos">
                 <IconButton onClick={()=> dispatch({type: "FAVS", payload: item})}>

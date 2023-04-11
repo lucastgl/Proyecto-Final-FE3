@@ -12,16 +12,31 @@ const Favorites = () => {
 
   const {state} = useContext(StateContext);
 
+  function eliminarDuplicados(array) {
+    const ids = {}; 
+  
+    const resultado = array.filter(objeto => {
+      if (ids[objeto.id]) {
+        return false;
+      }
+  
+      ids[objeto.id] = true;
+      return true;
+    });
+  
+    return resultado;
+  }
+  
+
   return (
-    <main>
-      <h1>Favoritos</h1>
+    <main style={{height: "80vh"}}>
       <HomeContainer>
-        {
-          state.data.map((item)=>(
+        {          
+          eliminarDuplicados(state.data).map((item)=>(
             <DentistaProfile key={item.id}>
                 <p>{item.name}</p>
                 <DentistaPic src={dentista}/>
-                <Link to={`/users/${item.id}`}>Ver mas</Link>
+                <Link style={{textDecoration: "none"}} to={`/users/${item.id}`}>Ver mas</Link>
                 <Box>
                 <Tooltip title="agregar a favoritos">
                     <IconButton>

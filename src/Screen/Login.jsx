@@ -1,8 +1,8 @@
 import React, {useState, useContext} from 'react';
 import { StateContext } from '../Context/StateContext';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Box, Button } from '@mui/material';
-import { FormContainer, Input } from '../Styles/styledComponent';
+import { Button } from '@mui/material';
+import { FormContainer, Input, FormBox} from '../Styles/styledComponent';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
@@ -29,51 +29,51 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validationSchema={LoginSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          setSubmitting(false);
-          dispatch({type: "LOGGIN", payload: values.email});
-          navigate("/home");
-        }, 800);
-      }}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          <FormContainer>
-            <Field
-              as={Input}
-              size='small'
-              name='email'
-              type='text'
-              label='E-mail'
-              placeholder='Ingrese su e-mail'
-              variant='outlined'
-              fullWidth
-            />
-            <ErrorMessage name='email' />
+    <FormBox>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={LoginSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            setSubmitting(false);
+            dispatch({type: "LOGGIN", payload: values.email});
+            navigate("/home");
+          }, 400);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <FormContainer>
+              <Field
+                as={Input}
+                size='small'
+                name='email'
+                type='text'
+                label='E-mail'
+                placeholder='Ingrese su e-mail'
+                variant='outlined'
+              />
+              <ErrorMessage name='email' />
 
-            <Field
-              as={Input}
-              size='small'
-              name='password'
-              type='password'
-              label='password'
-              placeholder='Ingrese su contraseña'
-              variant='outlined'
-              fullWidth
-            />
-            <ErrorMessage name='password' />
+              <Field
+                as={Input}
+                size='small'
+                name='password'
+                type='password'
+                label='password'
+                placeholder='Ingrese su contraseña'
+                variant='outlined'
+              />
+              <ErrorMessage name='password' />
 
-            <Button type='submit' size='small' variant='contained' disabled={isSubmitting}>
-              Ingresar
-            </Button>
-          </FormContainer>
-        </Form>
-      )}
-    </Formik>
+              <Button type='submit' size='small' variant='contained' disabled={isSubmitting}>
+                Ingresar
+              </Button>
+            </FormContainer>
+          </Form>
+        )}
+      </Formik>
+    </FormBox>
   );
 };
 

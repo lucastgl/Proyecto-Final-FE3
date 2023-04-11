@@ -1,5 +1,5 @@
 import Login from "../Screen/Login";
-import Footer from "../Components/Layout/Footer"
+import Footer from "../Components/Footer"
 import Navbar from "../Components/Layout/Navbar"
 
 import Home from "../Screen/Home";
