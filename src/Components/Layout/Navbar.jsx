@@ -19,9 +19,9 @@ const Navbar = () => {
                     <NavElement onClick={() => navigate("/favorites")} >Favoritos</NavElement>
                     <NavElement onClick={() => navigate("/contact")} >Contact</NavElement>
                 </ul>
-                <Typography variant='body2'>{state?.user}</Typography>
                 <Tooltip title="Cerrar sesión">
                     <IconButton onClick={() => dispatch({type: "LOGOUT" /*No usamos el payload ya que solo es obligatorio mientras se utilice*/})}>
+                            <Typography style={{color: "white", marginRight: "10px"}} variant='body2'>{state?.user}</Typography>
                             <ExitToAppIcon size={30} style={{color: "white"}}/>
                     </IconButton>
                 </Tooltip>

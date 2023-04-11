@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { endpoint } from "./Home";
 import dentista from "../imgs/dentista.jpg"
-import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { Button, IconButton, Tooltip } from '@mui/material';
+import {  IconButton, Tooltip } from '@mui/material';
+import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { DentistaPic } from '../Styles/styledComponent';
 
 const Detalis = () => {
   
@@ -27,15 +27,15 @@ const Detalis = () => {
 
 
   return (
-    <div>
-      <div>
+    <div style={{height: "80vh"}}>
+      <div style={{display: "flex", width: "30%"}}>
         <div>
-          <Tooltip title="Cerrar sesión">
+          <Tooltip title="Volver">
             <IconButton onClick={()=> navigate(-1)}>
               <ArrowBackIcon size={30} style={{color: "white"}}/>
             </IconButton>
           </Tooltip>
-          <img src={dentista} alt="dentista"/>
+          <DentistaPic src={dentista} alt="dentista"/>
         </div>
         <div>
           <p>{values?.name}</p>
